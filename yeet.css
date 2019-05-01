@@ -58,7 +58,7 @@ background: #6837ff
 .prestige {
 	background: linear-gradient(#270084, #6000AF 50%, #1900D3 100%);
 	border: 2px solid #00007F;
-	font-family: Typewriter;
+	color: #ffffff;
 	font-weight: bold;
 	border-radius: 4px;
 	transition-duration: 0.2s;
