@@ -55,3 +55,17 @@ background: #6837ff
     background: #FF7B00;
     border: 2px solid #FF7B00;
 }
+.prestige {
+	background: linear-gradient(#270084, #6000AF 50%, #1900D3 100%);
+	border: 2px solid #00007F;
+	font-family: Typewriter;
+	font-weight: bold;
+	border-radius: 4px;
+	transition-duration: 0.2s;
+	cursor: pointer;
+	animation: repeat 3s linear infinite
+}
+.prestige:hover {
+	      border-color: rgba(233,0,255,0.85);
+		box-shadow: inset 0px 0px 12px 0px #e900ff;
+}
