@@ -52,7 +52,10 @@ pUp2cost:5,
 rockLaunched:0,
 pUp3cost:5,
 rocket:0,
-creatMult:1
+funRuined:false,
+creatMult:1,
+pUp4Bought:false,
+pUp5Bought:false
 };
 var lore = ["You've heard of the people in the United States and the Soviet Union trying to make spaceships. You kind of want to make one yourself.", "", "", "", "","","","","","","","","","","","",""]
 function rockLaunch1() {
@@ -119,7 +122,7 @@ function upgrade2() {
 	lore[5] = "Amazingly, you find some way to mess up the fuel industry, and lower the cost of fuel to $2."
 	if (game.up2buys < 25) {
 	game.rock1.fuel.cost = 2;
-	game.rock1.fuel.scaleDown = 0.9*game.rock1.fuel.scaleDown;
+	game.rock1.fuel.scaleDown = 1.05*game.rock1.fuel.scaleDown;
 	game.money -= game.up2Cost;
 	if (game.rock1.techs.cs2 === 0){
 	game.up2Cost = Math.round(game.up2Cost*1.4);
@@ -260,13 +263,22 @@ function pUpgrade3() {
 	}
 };
 function pUpgrade4() {
-	if (game.creat >= 10) {
+	if (game.creat >= 10 && game.pUp4Bought === false) {
 	lore[11] = "You have recieved additional funding to make better rockets with things called Technology Points. Pretty cool."
 		game.creat -= 10;
 		game.rock1.techs.techStart = true;
+		game.pUp4Bought = true;
 	}
 	
-}
+};
+function pUpgrade5() {
+	if (game.creat >= 10 && game.pUp5Bought === false) {
+	game.creat -= 10;
+	game.auto.rocket = true;
+	game.auto.fuel = true;
+	game.pUp5Bought = true;
+	}
+};
 setInterval(function() {
 if (game.up1buys === 25 && game.up2buys === 25 && game.up3buys === 25) {
 	lore[11] = "You have done everything you can with this rocket. Maybe it's time to start a new project."
@@ -277,23 +289,23 @@ if (game.up1buys >= 5 && game.up2buys >= 5 && game.up3buys >= 5 && game.rock1.te
 	game.rock1.techs.currentTP = 1;
 }
 if (game.up1buys >= 10 && game.up2buys >= 10 && game.up3buys >= 10 && game.rock1.techs.maxTP === 1) {
-	game.maxTP = 2;
+	game.rock1.techs.maxTP = 2;
 	game.rock1.techs.currentTP += 1;
 }
 if (game.up1buys >= 15 && game.up2buys >= 15 && game.up3buys >= 15 && game.rock1.techs.maxTP === 2) {
-	game.maxTP = 3;
+	game.rock1.techs.maxTP = 3;
 	game.rock1.techs.currentTP += 1;
 }
 if (game.up1buys >= 20 && game.up2buys >= 20 && game.up3buys >= 20 && game.rock1.techs.maxTP === 3) {
-	game.maxTP = 4;
+	game.rock1.techs.maxTP = 4;
 	game.rock1.techs.currentTP += 1;
 }
 if (game.up1buys >= 22 && game.up2buys >= 22 && game.up3buys >= 22 && game.rock1.techs.maxTP === 4) {
-	game.maxTP = 5;
+	game.rock1.techs.maxTP = 5;
 	game.rock1.techs.currentTP += 1;
 }
 if (game.up1buys >= 24 && game.up2buys >= 24 && game.up3buys >= 24 && game.rock1.techs.maxTP === 5) {
-	game.maxTP = 6;
+	game.rock1.techs.maxTP = 6;
 	game.rock1.techs.currentTP += 1;
 }
 }
@@ -305,38 +317,38 @@ function tech11() {
 	}
 };
 function tech12() {
-	if (game.rock1.techs.cs2 < 3) {
+	if (game.rock1.techs.cs2 < 3 && game.rock1.techs.currentTP > 0) {
 	game.rock1.techs.currentTP -= 1;
 	game.rock1.techs.cs2 +=1;
 	}
 };
 function tech13() {
-	if (game.rock1.techs.cs3 < 3) {
+	if (game.rock1.techs.cs3 < 3&& game.rock1.techs.currentTP > 0) {
 	game.rock1.techs.currentTP -= 1;
 	game.rock1.techs.cs3 +=1;
 	}
 };
 function tech14() {
-	if (game.rock1.techs.ef3 < 3) {
+	if (game.rock1.techs.ef3 < 3&& game.rock1.techs.currentTP > 0) {
 	game.rock1.techs.currentTP -= 1;
 	game.rock1.techs.ef3 +=1;
 	}
 };
 function tech15() {
-	if (game.rock1.techs.mpf < 3) {
+	if (game.rock1.techs.mpf < 3&& game.rock1.techs.currentTP > 0) {
 	game.rock1.techs.currentTP -= 1;
 	game.rock1.techs.mpf +=1;
 	}
 };
 function tech16() {
-	if (game.rock1.techs.cmx < 3) {
+	if (game.rock1.techs.cmx < 3&& game.rock1.techs.currentTP > 0) {
 	game.rock1.techs.currentTP -= 1;
 	game.rock1.techs.cmx +=1;
 	}
 };
 function techRespec() {
 	game.rock1.techs.respec = true;
-}
+};
 window.setInterval(function(){
 document.getElementById("money").innerHTML = game.money;
 document.getElementById("fuel").innerHTML = game.rock1.fuel.amount;
