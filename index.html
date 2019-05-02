@@ -22,7 +22,7 @@
 	  The current cost of 1 fuel is <span id = "fuelCost"></span>$<br>
 	  <button class="yeet" onclick="buyFuel()"><br>Buy some fuel!<br></button><br>
 	  <button class="yeet" onclick="upgrade1()">Make your rocket longer, allowing it to <br>increase your fuel capacity by 10%!.<br>Cost:<span id = "upgrade1Cost"></span>$<br>Bought <span id = "upgrade1Buys"></span>/25 times</button>
-	  <button class="yeet" onclick="upgrade2()">Disrupt the economy, so you can decrease the cost<br> of fuel to $2, and decrease the cost scaling of fuel by 10%!<br>Cost:<span id = "upgrade2Cost"></span>$<br>Bought <span id = "upgrade2Buys"></span>/25 times</button>
+	  <button class="yeet" onclick="upgrade2()">Disrupt the economy, so you can decrease the cost<br> of fuel to $2, but increase the cost scaling of fuel by 5%!<br>Cost:<span id = "upgrade2Cost"></span>$<br>Bought <span id = "upgrade2Buys"></span>/25 times</button>
 	  <button class="yeet" onclick="upgrade3()">Increase the speed of your rocket,<br> allowing it to collect 25% more money!<br>Cost:<span id = "upgrade3Cost"></span>$<br>Bought <span id = "upgrade3Buys"></span>/25 times</button>
 	  <br>
 		  You have <span id="basicTechPoints"></span> TP, out of <span id="maxBTP"></span>
@@ -34,12 +34,11 @@
 <button class="basic" onclick="tech14()"> Increase the effectiveness of the third upgrade to <br>28% -> 30% -> 32%.<br>Cost: 1 TP. Bought:<span id = "TC14"></span></button>
 <button class="basic" onclick="tech15()"> Increase the Money per Fuel multiplier on prestige to <br>2x -> 3x -> 4x.<br>Cost: 1 TP. Bought:<span id = "TC15"></span></button>
 <button class="basic" onclick="tech16()"> Increase the multiplier for Creativity to <br>2x -> 3x -> 4x.<br>Cost: 1 TP. Bought:<span id = "TC16"></span></button><br>
-<button class="basic" onclick="techRespec()"> <br>Respec TCs on next Brainstorm<br></button><br>
+<button class="prestige" onclick="techRespec()"> <br>Respec TCs on next Brainstorm<br></button><br>
 		  </center>
 	  <br>
-	Thanks to SuperSpruce for some of the code! You can check out his YouTube channel <a href = "https://www.youtube.com/channel/UCrpbLYZYpwpkrW9j9x8Ci2A" target = "_blank">here</a>, and the game we're collaborating on <a href = "https://superspruce.github.io/Clover-Clicker/" target = "_blank">here</a>.<br>
-	  Join our discord <a href = "https://discord.gg/QxG3Rp9" target = "_blank">here.</a>
-		  </div>
+	Thanks to SuperSpruce for some of the code! You can check out his YouTube channel <a href = "https://www.youtube.com/channel/UCrpbLYZYpwpkrW9j9x8Ci2A" target = "_blank">here</a>, and the game we're collaborating on <a href = "https://superspruce.github.io/Clover-Clicker/" target = "_blank">here<a>.
+	  </div>
 	  <div id="sources" class="tab">
 		  Secondary:
 		  Morring, Jr., Frank. "Space race." World Book Advanced, World Book, 2019, www.worldbookonline.com/advanced/article?id=ar755298. Accessed 16 Jan. 2019.<br>
@@ -52,24 +51,12 @@
 		  an intervew with someone, but i won't say here in order to contain my anonymity
 	  </div>
 	  <div id="options" class="tab">
-				   <button class="yeet" onclick="fullReset()">Reset the game</button>	   
-				   	   <br>
-		  <h2>Changelog</h2>
-		  <br>
-		  <h3>April 26, 2019:</h3> <br>Added prestige upgrades (broken)<br>
-		  Added CSS<br>
-		  Added more sources <br>
-		  Added lore<br>
-		  <h3>April 30, 2019:</h3> <br>Added prestige upgrades!<br>
-		  2 repeatable (increase rocket amount +1, increase creativity mult *1.5)<br>
-		  2 permanent (Join NASA/US, unlock Technologies<br>
-		  Upgrades now max out at 25 rather than 5<br>
-		  Technologies, which can provide massive boosts<br>
-		  More lore
+				   <button class="yeet" onclick="fullReset()">Reset the game</button>	  
+				   
 	</div>
 	  <div id="prestige" class="tab">
 		  <center>
-		  <button class="prestige"onclick="prestige1()">Reset everything except automation, and gain <span id = "gainOnBrainstorm"></span> creativity. <div> You must have bought at least 5 of each upgrade.</button>
+		  <button class="prestige" onclick="prestige1()">Reset everything except automation, and gain <span id = "gainOnBrainstorm"></span> creativity. <div> You must have bought at least 5 of each upgrade.</button>
 	  	  <br>
 			  You have <span id="creativity">0</span> creativity.
 		  <br>
@@ -77,6 +64,7 @@
 			  <button class="allegiance yeet" onclick="pUpgrade2()">Use <span id = "pUpgrade2Cost"></span> creativity to launch multiple rockets at once! <br> Currently:<span id = "basicRocketLimit"></span></button>
 			  <button class="yeet" onclick="pUpgrade3()">Use <span id = "pUpgrade3Cost"></span> creativity to increase the Creativity multiplier.<br>Currently: <span id="creativityMultiplier"></span></button><br>
 			  <button class="basic" onclick="pUpgrade4()">Use 10 creativity to unlock Technologies.<br>This unlocks Technology Point generation,<br>gained based on how many upgrades you have!</button>
+			  <br><button class="basic" onclick="pUpgrade5()">Automate the buying of fuel and the launch of rockets.<br>WARNING: After buying this, there is no way to turn off automation.<br>Do not leave the tab open in the background.<br> Cost: 10 Creativity</button>
 				  </center>
 	  </div>
 	<div id="lore" class="tab">
