@@ -55,6 +55,7 @@ rocket:0,
 funRuined:false,
 creatMult:1,
 pUp4Bought:false,
+brainstormed:false,
 pUp5Bought:false
 };
 var lore = ["You've heard of the people in the United States and the Soviet Union trying to make spaceships. You kind of want to make one yourself.", "", "", "", "","","","","","","","","","","","",""]
@@ -185,6 +186,7 @@ function p1Gain() {
 }
 function prestige1(){
 if (game.up1buys >=5 && game.up2buys >= 5 && game.up3buys >= 5 && game.money >= 50000){
+	game.brainstormed = true;
 lore[7] = "You decide it's time to brainstorm up some better ideas for your rocket, so you deconstruct it using the money you have left."
 game.creat += Math.floor(Math.sqrt(game.money/50000)*game.creatMult)*(game.rock1.techs.cmx+1);
 game.money = 0;
@@ -349,6 +351,17 @@ function tech16() {
 function techRespec() {
 	game.rock1.techs.respec = true;
 };
+function ruinTheFun() {
+	if (game.funRuined === false){
+	game.up1Buys = 5;
+	game.up2Buys = 5;
+	game.up3Buys = 5;
+	game.creat = 50;
+	game.money = 50000;
+	game.rock1.moneyPerFuel = 100;
+	game.funRuined = true;
+	}
+};
 window.setInterval(function(){
 document.getElementById("money").innerHTML = game.money;
 document.getElementById("fuel").innerHTML = game.rock1.fuel.amount;
@@ -387,4 +400,20 @@ document.getElementById("TC13").innerHTML = game.rock1.techs.cs3;
 document.getElementById("TC14").innerHTML = game.rock1.techs.ef3;
 document.getElementById("TC15").innerHTML = game.rock1.techs.mpf;
 document.getElementById("TC16").innerHTML = game.rock1.techs.cmx;
+	if (game.money > 50000 || game.brainstormed === true) {
+	document.getElementById("brainPrestige").style.display = "inline"
+} else {
+	document.getElementById("brainPrestige").style.display = "none"
+}
+if (1 === 2) {
+document.getElementById("explorerTab").style.display = "inline"
+} else {
+	document.getElementById("explorerTab").style.display = "none"
+}
+	if (game.rock1.techs.techStart === true) {
+		document.getElementById("basicTechs").style.display = ""
+		
+	}else {
+document.getElementById("basicTechs").style.display = "none"
+	}
 }, 10);
