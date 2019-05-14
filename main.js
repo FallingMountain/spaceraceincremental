@@ -1686,4 +1686,12 @@ document.getElementById("explorerTechs").style.display = "none"
 document.getElementById("mercuryTechs").style.display = "none"
 		document.getElementById("mercuryTechs2").style.display = "none"
 	}
+	if (game.rock4.active === true) {
+		document.getElementById("geminiContent").style.display = ""
+		
+	} else {document.getElementById("geminiContent").style.display = "none"}
+	if (game.rock5.active === true) {
+		document.getElementById("apolloContent").style.display = ""
+		
+	} else {document.getElementById("apolloContent").style.display = "none"}
 }, 10);
