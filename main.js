@@ -543,6 +543,10 @@ function load() {
 	if(!localStorage.sri) return;
 	game = JSON.parse(atob(localStorage.sri));
 	game.rockLaunched = 0;
+	game.rock2.rockLaunched = 0;
+	game.rock3.rockLaunched = 0;
+	game.rock4.rockLaunched = 0;
+	game.rock5.rockLaunched = 0;
 };
 function outof() {
 	var tempInput = document.createElement("input");
